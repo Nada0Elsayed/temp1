@@ -39,14 +39,29 @@ html{
 body {
   font-family: "Work Sans", sans-serif; 
 }
+.up{
+    bottom: 20px;
+    left: 20px;
+    position: fixed;
+    font-size: 15px;
+    font-weight: 900;
+    background-color: var(--main-color);
+    color: white;
+    padding: 3px 5px;
+border-radius: 50%;
+    z-index: 2;
+    cursor: pointer;
+    transition: .9s;
+}
 .container{
     padding-left:15px ;
-    padding-right:15px ;
+    padding-right: 15px ;
     margin-right: auto;
     margin-left: auto;/* هييجي ف النص */
 }
+
 /* small */
-@media (min-width: 768px) {
+@media (min-width: 768px) {  /* اكبر من 768 */
     .container{
         width: 750px;
     }
@@ -78,7 +93,7 @@ body {
 .header .links{
     position: relative;
 }
-.header .links:hover .icon span:nth-child(2){
+.header .links.open .icon span:nth-child(2){
     width: 100%;
 }
 .header .links .icon{
@@ -90,7 +105,6 @@ body {
 .header .links .icon span{
     background-color: black;
     margin-bottom: 5px;
-    justify-content: flex-end;
 }
 .header .links .icon span:first-child{
     height: 3px;
@@ -106,18 +120,18 @@ body {
     width: 100%;
 }
 .header .links ul{
-    list-style: none;
+    list-style: none;   /*  remove points */    
     margin: 0;
     padding: 0;
     background-color:var(--sec-background) ;
     position: absolute;
-    right: 0;  /*     ... ? */
+    right: 0;     /* right of bounder not page*/
     min-width: 200px;
     top:calc(100% + 15px);
     display: none;
     z-index: 1;
 }
-.header .links ul::before{
+.header .links.open ul::before{
     content: "";
     border-width: 10px ;
     border-style: solid;
@@ -126,7 +140,7 @@ body {
     right: 5px;
     top:-20px ;
 }
-.header .links:hover ul{
+.header .links.open ul{
     display: block;
 }
 .header .links ul li a{
@@ -138,10 +152,13 @@ body {
 }
 .header .links ul li a:hover{
     padding-left: 25px;
+    
 }
 .header .links ul li:not(:last-child) a{
     border-bottom: 1px solid #ddd
 }
+
+/* landing */
 .landing{
     background-image: url(../img/خلفيات-طبيعة-4k-scaled.jpg);
     background-size:cover;
@@ -150,9 +167,9 @@ body {
 }
 .landing .intro-text {
     position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
+    left: 50%;         /*?*/
+    top: 50%;           /*?*/
+    transform: translate(-50%,-50%);      /*?*/
     width: 320px;
     max-width: 100%;
     text-align: center;
@@ -201,7 +218,7 @@ body {
 .services .services-content{
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
-    grid-gap: 30px;
+    grid-gap: 30px;    /*space R,L*/
     margin-top: 100px; 
 }
 .services .services-content .srv{
@@ -219,8 +236,8 @@ body {
     font-size:40px;
 }
 .services .services-content .srv .text{
-    flex: 1;
-    padding-left: 20px;
+    flex: 1;           /*?*/
+    padding-left: 20px;   /*?*/
 }
 .services .services-content .srv .text h3{
     margin: 0 0 20px;
@@ -278,7 +295,7 @@ body {
 .portfolio .portfolio-content .card .info p{
     color: #777;
     line-height: 1.6;
-    margin-bottom:0 ;
+    margin-bottom:0 ;  /*?*/
 }
 .about{
     padding-top: var(--sec-padding);
@@ -287,7 +304,7 @@ body {
 .about .about-content{
     margin-top: 100px;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap;   /*?*/
     justify-content: space-between;
 }
 @media (max-width: 991px) {
@@ -354,7 +371,7 @@ body {
 }
 .about .about-content .text hr{
     width: 50%;
-    display: inline-block;
+    display: inline-block;      /*respect text-align*/
     border-color: ver(--main-color);
 }
 .contact{
